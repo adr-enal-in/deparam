@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Deparameterize</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <style type="text/css">
+        body {
+          font-family: "Helvetica Neue", Helvetica;
+        }
+        table tbody {
+          font-family: "Inconsolata", Helvetica;
+        }
+        table thead td {
+          background-color: #ccc;
+        }
+        table tbody tr:nth-child(odd) td {
+          background-color: #eee;
+        }
+        </style>
+    </head>
+    <body>
+
+<p><input type="text" id="url" placeholder="Paste URL here"></p>
+
+<table class="tablesorter">
+  <thead>
+    <tr>
+      <th data-sort="string">Key</td>
+      <th>Value</td>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="stupidtable.js"></script>
+<script>
+$(document).ready(function() {
+  $("table").stupidtable()
+
+  $("#url").on("input", function(event) {
+    // Clear table on every iteration
+    $("table tbody").html("")
+
+    inputString = $(this).val()
+    arr = inputString.split("&")
+    var str;
+    for(var i in arr)
+    {
+      var tr = document.createElement("tr"),
+          keyTd = document.createElement("td"),
+          valTd = document.createElement("td"),
+          param = ""
+
+      // do nothing for 2nd param and above
+      if(i > 0) {
+        param = arr[i]
+      // First one needs to have first part of URL removed (e.g. http://google.com/?)
+      } else {
+        param = arr[i].split("?")[1]
+      }
+
+      keyTd.innerHTML = param.split("=")[0]
+      valTd.innerHTML = param.split("=")[1]
+      tr.appendChild(keyTd)
+      tr.appendChild(valTd)
+
+      $("table tbody").append(tr)
+      $("table").trigger("update")
+    }
+  })
+})
+</script>
+    </body>
+</html>
+
+
