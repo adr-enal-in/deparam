@@ -34,6 +34,10 @@ $(document).ready(function() {
     if( Modernizr.localstorage) localStorage.setItem("url", url)
   }
 
+  var setHash = function(url) {
+    window.location.hash = url
+  }
+
   // If hash is set, use that as url
   if(window.location.hash !== "") {
     setInput(window.location.hash.substr(1))
@@ -45,16 +49,22 @@ $(document).ready(function() {
   }
 
   $("#url").on("input", function(event) {
+    var inputValue = $(this).val();
+
+    if( inputValue === "" ) return;
+
     // Save to localStorage
-    saveInput($(this).val())
+    saveInput(inputValue)
+
+    // Set URL hash
+    setHash(inputValue)
 
     if( !$("table").is(":visible") ) $("table").fadeIn("slow")
 
     // Clear table on every iteration
     $("table tbody").html("")
 
-    inputString = $(this).val()
-    arr = inputString.split("&")
+    arr = inputValue.split("&")
     var str;
     for(var i in arr)
     {
