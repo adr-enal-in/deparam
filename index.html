@@ -22,6 +22,14 @@ title: Deparameterize URL strings | Deparam.io
 $(document).ready(function() {
   $("table").stupidtable()
 
+  // If hash is set, use that as url
+  if(window.location.hash !== "") {
+    $("#url").val(window.location.hash.substr(1))
+    setTimeout(function() {
+      $("#url").trigger("input")
+    }, 1)
+  }
+
   $("#url").on("input", function(event) {
     if( !$("table").is(":visible") ) $("table").fadeIn("slow")
 

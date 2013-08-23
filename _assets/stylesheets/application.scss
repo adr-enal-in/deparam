@@ -11,6 +11,13 @@ input {
   text-align: center;
   width: 100%;
   font-size: 2em;
+  border: 1px solid white;
+  border-radius: 8px;
+  padding: 5px 10px 5px 10px;
+
+  &:hover {
+    border: 1px solid #ccc;
+  }
 }
 
 $border-color: #888;
@@ -37,7 +44,6 @@ table {
       border-bottom: 1px solid $border-color;
       border-right: 1px solid $border-color;
       max-width: 800px;
-      overflow: scroll;
       word-wrap: break-word;
     }
 
