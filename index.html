@@ -17,20 +17,37 @@ title: Deparameterize URL strings | Deparam.io
 </table>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
 <script src="js/stupidtable.js"></script>
 <script>
 $(document).ready(function() {
   $("table").stupidtable()
 
-  // If hash is set, use that as url
-  if(window.location.hash !== "") {
-    $("#url").val(window.location.hash.substr(1))
+  var setInput = function(url) {
+    $("#url").val(url)
     setTimeout(function() {
       $("#url").trigger("input")
     }, 1)
   }
 
+  var saveInput = function(url) {
+    if( Modernizr.localstorage) localStorage.setItem("url", url)
+  }
+
+  // If hash is set, use that as url
+  if(window.location.hash !== "") {
+    setInput(window.location.hash.substr(1))
+
+  // Also look for previous input in localstorage
+  } else if (Modernizr.localstorage) {
+    var previousUrl = localStorage.getItem("url")
+    setInput(previousUrl)
+  }
+
   $("#url").on("input", function(event) {
+    // Save to localStorage
+    saveInput($(this).val())
+
     if( !$("table").is(":visible") ) $("table").fadeIn("slow")
 
     // Clear table on every iteration
