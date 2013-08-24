@@ -1,19 +1,40 @@
+body, html {
+  height: 100%;
+  min-height: 100%; }
+
 body {
   font-family: "Helvetica Neue", Helvetica;
-  font-size: 18px; }
+  font-size: 18px;
+  background-color: #f8e8d1;
+  color: #3d322e; }
 
-input {
+a {
+  text-decoration: none; }
+
+#permalink {
+  font-size: 2em;
+  color: #d94a5e; }
+
+#container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 1024px;
+  padding-top: 100px;
+  padding-bottom: 50px; }
+
+input#url {
   border: none;
   -webkit-box-shadow: none;
   outline: none;
   box-shadow: none;
   text-align: center;
-  width: 100%;
   font-size: 2em;
+  width: 100%;
   border: 1px solid white;
   border-radius: 8px;
-  padding: 5px 10px 5px 10px; }
-  input:hover {
+  padding: 5px 10px 5px 10px;
+  background-color: #d94a5e; }
+  input#url:hover {
     border: 1px solid #ccc; }
 
 table {
@@ -22,7 +43,7 @@ table {
   font-size: 1.6em;
   max-width: 1024px; }
   table thead th {
-    background-color: #ccc;
+    background-color: #b89a9a;
     border: 1px solid #888888; }
   table tbody {
     font-family: "Inconsolata", Helvetica; }
@@ -37,11 +58,4 @@ table {
     table tbody tr td:nth-child(1) {
       border-right: 1px solid #888888; }
     table tbody tr:nth-child(even) td {
-      background-color: #eee; }
-
-#container {
-  margin-left: auto;
-  margin-right: auto;
-  width: 1024px;
-  margin-top: 100px;
-  padding-bottom: 50px; }
+      background-color: #a2c7da; }

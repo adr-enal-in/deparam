@@ -1,26 +1,63 @@
+// Palette: http://www.colourlovers.com/palette/3005855/barely_nailed_it
+$background-color: #F8E8D1;
+$foreground-color: #3D322E;
+$accent-color: #D94A5E;
+$highlight-color1: #B89A9A;
+$highlight-color2: #A2C7DA;
+$border-color: #888;
+
+body, html {
+  height: 100%;
+  min-height: 100%;
+}
+
 body {
   font-family: "Helvetica Neue", Helvetica;
   font-size: 18px;
+  background-color: $background-color;
+  color: $foreground-color;
 }
 
-input {
+a {
+  text-decoration: none;
+}
+
+#permalink {
+  font-size: 2em;
+  color: $accent-color;
+}
+
+#container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 1024px;
+  padding-top: 100px;
+  padding-bottom: 50px;
+}
+
+input#url {
   border: none;
   -webkit-box-shadow: none;
   outline: none;
   box-shadow: none;
+
   text-align: center;
-  width: 100%;
   font-size: 2em;
+
+  width: 100%;
+
   border: 1px solid white;
   border-radius: 8px;
+
   padding: 5px 10px 5px 10px;
+
+  background-color: $accent-color;
 
   &:hover {
     border: 1px solid #ccc;
   }
 }
 
-$border-color: #888;
 
 table {
   display: none;
@@ -30,7 +67,7 @@ table {
 
   thead {
     th {
-      background-color: #ccc;
+      background-color: $highlight-color1;
       border: 1px solid $border-color;
     }
   }
@@ -52,15 +89,8 @@ table {
     }
 
     tr:nth-child(even) td {
-      background-color: #eee;
+      background-color: $highlight-color2;
     }
   }
 }
 
-#container {
-  margin-left: auto;
-  margin-right: auto;
-  width: 1024px;
-  margin-top: 100px;
-  padding-bottom: 50px;
-}
