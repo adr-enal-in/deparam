@@ -3,6 +3,7 @@ layout: default
 title: Deparameterize URL strings | Deparam.io
 ---
 
+<a href="#" id="permalink">&infin;</a> <a href="#">History</a>
 <p><input type="text" id="url" placeholder="Paste URL here"></p>
 
 <table class="tablesorter">
@@ -37,6 +38,21 @@ $(document).ready(function() {
 
   var setHash = function(url) {
     window.location.hash = url
+    $("#permalink").attr("href", document.URL)
+  }
+
+  var isValidUrl = function(url) {
+    var pattern = new RegExp('^(https?:\/\/)?'+ // protocol
+      '((([a-z\d]([a-z\d-]*[a-z\d])*)\.)+[a-z]{2,}|'+ // domain name
+      '((\d{1,3}\.){3}\d{1,3}))'+ // OR ip (v4) address
+      '(\:\d+)?(\/[-a-z\d%_.~+]*)*'+ // port and path
+      '(\\?[;&a-z\d%_.~+=-]*)?'+ // query string
+      '(\#[-a-z\d_]*)?$','i'); // fragment locater
+    if(!pattern.test(url)) {
+      return false;
+    } else {
+      return true;
+    }
   }
 
   // If hash is set, use that as url
