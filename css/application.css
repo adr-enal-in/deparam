@@ -14,6 +14,8 @@ input {
 table {
   display: none;
   margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
   font-size: 1.6em;
   max-width: 1024px; }
   table thead th {
