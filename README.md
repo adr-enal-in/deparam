@@ -1,11 +1,9 @@
 deparam
 =======
 
-http://adr-enal-in.github.io/deparam/
+http://deparam.io
 
 Breaks URL strings with parameters into readable key-value pairs for light reading.
-
-http://adr-enal-in.github.io/deparam/
  
 ## Jekyll
 `jekyll -w serve`
