@@ -1,10 +1,10 @@
 deparam
 =======
 
-http://deparam.io
+http://deparam.teardrop.co/
 
 Breaks URL strings with parameters into readable key-value pairs for light reading.
- 
+
 ## Jekyll
 `jekyll -w serve`
 
