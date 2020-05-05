@@ -1,7 +1,7 @@
 deparam
 =======
 
-https://deparam.dakotah.co/
+https://deparam.dakotahpena.dev
 
 Breaks URL strings with parameters into readable key-value pairs for light reading.
 
